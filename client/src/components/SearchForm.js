@@ -9,8 +9,8 @@ function SearchForm() {
         <Form.Control placeholder="The Great Gatsby" />
       </Form.Group>
       <Button variant="primary" type="submit">
-    Search
-  </Button>
+        Search
+      </Button>
     </Form>
   );
 }

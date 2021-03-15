@@ -1,32 +1,32 @@
 /* eslint-disable react/prefer-stateless-function */
-import React, { Component } from "react";
-// import 'bootstrap/scss/_utilities.scss';
-// import 'bootstrap/scss/_mixins.scss';
-// import 'bootstrap/scss/_variables.scss';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'bootstrap/scss/bootstrap.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/css/_navbar.scss';
+import './main.sass';
+
 import GlobalNavBar from './components/GlobalNavBar'
 import GlobalJumbo from './components/GlobalJumbo'
-import SearchForm from './components/SearchForm'
-import ResultsList from './components/ResultsList'
+import Search from './pages/Search';
+import Saved from './pages/Saved';
+import NoMatch from './pages/NoMatch'
 
 
 function App() {
     return (
+      <Router>
       <div>
         <GlobalNavBar />
         <GlobalJumbo />
-
-      <div className="container">
-        <SearchForm />
-
-        <div className="row">
-          <ResultsList />
-        </div>
+        <Switch>
+          <Route exact path="/" component={Search} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/saved" component={Saved} />
+          <Route component={NoMatch} />
+        </Switch>
 
       </div>
-      </div>
+      </Router>
     );
 }
 
