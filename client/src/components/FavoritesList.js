@@ -5,10 +5,22 @@ import API from "../utils/API";
 import BookCard from "./BookCard"
 
 
-function ResultsList({results}) {
+function FavoritesList() {
 
   const button1 = "More Details";
-  const button2 = "Save to Favorites";
+  const button2 = "Delete from Favorites";
+  const results = [
+      {
+          volumeInfo: {
+              imageLinks: {
+                  smallThumbnail: "..."
+              },
+              title: "Great Gatsby",
+              description: "good book",
+              author: [ "joe bob"]
+          }
+        }
+]
 
   return (
     <ListGroup variant="flush">
@@ -26,4 +38,4 @@ function ResultsList({results}) {
   );
 }
 
-export default ResultsList;
+export default FavoritesList;
