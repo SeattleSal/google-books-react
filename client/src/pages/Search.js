@@ -7,12 +7,11 @@ function Search() {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
 
+  // call google books api with 'search' as parameter
   async function handleFormSubmit(event) {
     event.preventDefault();
-    // console.log("button clicked " + search);
-    // call google books api with 'search'
-    const results = await API.getBooks(search);
-    console.log(results.data.items);
+    const results = await API.getBooks(search); // or change to .then
+    // console.log(results.data.items);
     setResults(results.data.items);
   }
 
