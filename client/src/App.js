@@ -5,27 +5,23 @@ import 'bootstrap/scss/bootstrap.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './main.sass';
 
-import GlobalNavBar from './components/GlobalNavBar'
-import GlobalJumbo from './components/GlobalJumbo'
 import Search from './pages/Search';
 import Saved from './pages/Saved';
-import NoMatch from './pages/NoMatch'
-
+import NotFound from './pages/NotFound';
+import GlobalNavBar from './components/GlobalNavBar'
+import GlobalJumbo from './components/GlobalJumbo'
 
 function App() {
     return (
       <Router>
-      <div>
         <GlobalNavBar />
         <GlobalJumbo />
         <Switch>
           <Route exact path="/" component={Search} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/saved" component={Saved} />
-          <Route component={NoMatch} />
+          <Route component={NotFound} />
         </Switch>
-
-      </div>
       </Router>
     );
 }

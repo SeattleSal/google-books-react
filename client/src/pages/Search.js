@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import SearchForm from "../components/SearchForm";
-import ResultsList from "../components/ResultsList";
+import SearchResultsList from "../components/SearchResultsList";
 import API from "../utils/API"
 
 function Search() {
@@ -11,7 +11,7 @@ function Search() {
   async function handleFormSubmit(event) {
     event.preventDefault();
     const results = await API.getBooks(search); // or change to .then
-    // console.log(results.data.items);
+    console.log(results.data.items);
     setResults(results.data.items);
   }
 
@@ -21,7 +21,7 @@ function Search() {
       setSearch={setSearch}
       handleFormSubmit={handleFormSubmit} />
       <div className="row">
-        <ResultsList results={results} />
+        <SearchResultsList results={results} />
       </div>
     </div>
   );

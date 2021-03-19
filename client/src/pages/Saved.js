@@ -1,10 +1,24 @@
-import React from 'react';
-import FavoritesList from '../components/FavoritesList'
+import React, {useEffect, useState} from 'react';
+import SavedBooksList from '../components/SavedBooksList'
+import API from '../utils/API'
 
 function Saved() {
+    const [savedBooks, setSavedBooks] = useState([]);
+
+    useEffect(() => {
+        API.getSavedBooks()
+        .then(({data}) => {
+            // set state
+            console.log("Saved books..." + data)
+            setSavedBooks(data);
+        });
+    }, [setSavedBooks]);
+
+    console.log(savedBooks)
+
     return (
         <div>
-            <FavoritesList />
+            <SavedBooksList savedBooks={savedBooks}/>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Jumbotron } from 'react-bootstrap';
 
 
-function NoMatch() {
+function NotFound() {
     return (
         <Container fluid>
         <Row>
@@ -21,4 +21,4 @@ function NoMatch() {
     )
 }
 
-export default NoMatch
+export default NotFound;
