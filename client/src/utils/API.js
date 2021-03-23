@@ -1,16 +1,12 @@
-// google books request
-// api calls to stored books
 import axios from "axios";
 const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=";
-// // const query = "HarryPotter";
 
-
-// use async????
 export default {
+  // get books from google books api
   getBooks: function(search) {
     return axios.get(BASEURL + search);
   },
-  // Gets all books
+  // Gets all saved books
   getSavedBooks: function() {
     return axios.get("/api/books");
   },
@@ -24,7 +20,6 @@ export default {
   },
   // Saves a book to the database
   saveBook: function(bookData) {
-    console.log("from utils api: " + bookData.imgURL)
     return axios.post("/api/books", bookData);
   }
 };

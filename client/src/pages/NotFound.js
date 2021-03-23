@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Jumbotron } from 'react-bootstrap';
 
-
 function NotFound() {
     return (
         <Container fluid>
