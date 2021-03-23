@@ -1,24 +1,24 @@
 import React from "react";
 import { ListGroup } from "react-bootstrap";
-import API from "../utils/API";
 import SaveBookButton from "./SaveBookButton";
+import MoreInfoButton from "./MoreInfoButton";
 import SearchBookCard from "./SearchBookCard";
 
 function SearchResultsList({ results }) {
-
   return results.length ? (
     <ListGroup>
-      <ListGroup.Item>
-        {results.map((book, index) => (
-          <div key={index}>
-            <SaveBookButton book={book} />
-            <SearchBookCard book={book} />
-          </div>
-        ))}
-      </ListGroup.Item>
+      {results.map((book, index) => (
+        <ListGroup.Item key={index}>
+          <MoreInfoButton link={book.volumeInfo.previewLink} />
+          <SaveBookButton book={book} className="m-1" />
+          <SearchBookCard book={book} />
+        </ListGroup.Item>
+      ))}
     </ListGroup>
   ) : (
-    <h1> No Results </h1>
+    <div className="container">
+      <h2> No Results </h2>
+    </div>
   );
 }
 

@@ -26,8 +26,6 @@ router
   .get(booksController.findById);
 //   .delete(booksController.remove)
 
-  router.delete("/:id", (req, res) => {
-      booksController.remove(req);
-  })
+  router.delete("/:id", booksController.remove);
 
 module.exports = router;

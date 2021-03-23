@@ -1,21 +1,25 @@
 import React from "react";
 import { ListGroup } from "react-bootstrap";
-import API from "../utils/API";
 import SavedBookCard from "./SavedBookCard";
 import DeleteBookButton from "./DeleteBookButton";
+import MoreInfoButton from "./MoreInfoButton";
 
-function SavedBooksList({ savedBooks }) {
-  
+function SavedBooksList({ savedBooks, getSavedBooks, setSavedBooks }) {
   return (
     <ListGroup variant="flush">
-      <ListGroup.Item>
-        {savedBooks.map((book, index) => (
-          <div key={index}>
-            <DeleteBookButton book={book} />
+      {savedBooks.map((book) => (
+        <ListGroup.Item key={book._id}>
+            <MoreInfoButton link={book.link} />
+            <DeleteBookButton
+              id={book._id}
+              savedBooks={savedBooks}
+              getSavedBooks={getSavedBooks}
+              setSavedBooks={setSavedBooks}
+              className="ml-1"
+            />
             <SavedBookCard book={book} />
-          </div>
-        ))}
-      </ListGroup.Item>
+        </ListGroup.Item>
+      ))}
     </ListGroup>
   );
 }

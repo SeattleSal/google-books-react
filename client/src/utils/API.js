@@ -30,8 +30,6 @@ export default {
 };
 
 
-
-
 // const API = {
 //   // search books from googlebooks
 //   getBooks: (search) => {
@@ -48,12 +46,6 @@ export default {
 //     return axios.post("/api/books", book);
 //   }
 // };
-// add the following:
-// set favorite book
-// get favorite books
-// delete favorite books
-
-// can setup example return data that would be returned later
 // example: return { data: []}
 // return {
 //   data: [

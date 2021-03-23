@@ -21,9 +21,8 @@ module.exports = {
   },
   remove: function (req, res) {
     console.log("Remove: " + req.params.id);
-    Book.findById({ _id: req.params.id })
-      .then((dbModel) => dbModel.remove())
-      .then((dbModel) => res.json(dbModel))
+    Book.findByIdAndDelete(req.params.id)
+      .then((deletedBook) => res.json(deletedBook))
       .catch((err) => res.status(422).json(err));
   }
 };

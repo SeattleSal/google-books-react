@@ -2,16 +2,15 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import API from '../utils/API';
 
-function DeleteBookButton({book, updateBook}) {
-
-    const testID = "60527a905ad1fa352c2a7296";
+function DeleteBookButton({id, savedBooks, getSavedBooks, setSavedBooks, ...props}) {
 
     // call api Delete book, pass it book to Delete
     const DeleteBook = () => {
 
-        console.log("Deletebookbutton: " + testID)
-        API.deleteSavedBook(testID)
+        API.deleteSavedBook(id)
         .then(() => { 
+            const newBooks = savedBooks.filter(b => b._id !== id );
+            setSavedBooks(newBooks);
             // handle successful response
             console.log("Deleted Success!")
         })
@@ -21,7 +20,7 @@ function DeleteBookButton({book, updateBook}) {
     }
 
     return (
-        <Button onClick={DeleteBook}>
+        <Button onClick={DeleteBook} {...props}>
             Delete Book
         </Button>
     )

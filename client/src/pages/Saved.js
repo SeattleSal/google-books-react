@@ -5,20 +5,22 @@ import API from '../utils/API'
 function Saved() {
     const [savedBooks, setSavedBooks] = useState([]);
 
-    useEffect(() => {
-        API.getSavedBooks()
+    const getSavedBooks = () => {
+        return API.getSavedBooks()
         .then(({data}) => {
-            // set state
-            console.log("Saved books..." + data)
             setSavedBooks(data);
         });
-    }, [setSavedBooks]);
+    }
 
-    console.log(savedBooks)
+    useEffect(() => {
+        getSavedBooks();
+    }, [setSavedBooks]);
 
     return (
         <div>
-            <SavedBooksList savedBooks={savedBooks}/>
+            <SavedBooksList savedBooks={savedBooks}
+            getSavedBooks={getSavedBooks}
+            setSavedBooks={setSavedBooks}/>
         </div>
     )
 }

@@ -1,21 +1,27 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
-// import API
+import { Card } from "react-bootstrap";
 
 function SavedBookCard({ book }) {
-  // onclick to save book as favorite
-  // call the api
-  // save this as a favoirte - pass it the book info????
+
+  const MAX_LENGTH = 400;
 
   return (
-    <Card style={{ width: "20rem" }}>
-      <Card.Img src={book.img} />
+    <li className="media mt-1 t-1">
+      <Card.Img src={book.imgURL} className="m-2" style={{width: "100px"}}/>
       <Card.Body>
         <Card.Title>{book.title}</Card.Title>
         <Card.Title>Author(s): {book.authors}</Card.Title>
-        <Card.Text>{book.description}</Card.Text>
+        <Card.Text>
+          {book.description.length > MAX_LENGTH ?
+            (
+              <div>
+                {`${book.description.substring(0, MAX_LENGTH)}...`}
+              </div>
+            ) : book.description
+          }
+          </Card.Text>
       </Card.Body>
-    </Card>
+    </li>
   );
 }
 
