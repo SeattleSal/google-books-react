@@ -1,5 +1,4 @@
-# google-books-react
-# Unit 19 React Homework: Employee Directory
+# Google Books Search and Save
 
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -13,34 +12,32 @@
 * [License](#license)
 
 ## Description
-This application is a employee directory created with React. 
+This application is a React-based Google Books search that allows users to save their favorite books. The app utilizes Node, Express, and MongoDB and a 3P API Google Books.
 
 ## Links
-* Live Website: https://seattlesal-employee-directory.herokuapp.com/
-* Github Link: https://github.com/SeattleSal/employee-directory-react
+* Live Website: https://seattlesal-google-books.herokuapp.com/
+* Github Link: https://github.com/SeattleSal/google-books-react
 
 ## User_Story
-AS a manager or employee
-I WANT to be able to view my entire employee directory at once 
-SO THAT I have quick access to their contact information
+AS a user
+I WANT to search for books and save my favorites 
+SO THAT I have quick access to my favorite books
 
 ## Acceptance_Criteria
-Given a table of random users generated from the [Random User API](https://randomuser.me/), when the user loads the page, a table of employees should render. 
-
 The user should be able to:
 
-  * Sort the table by at least one category
+  * User can search for books via the Google Books API and render them here. User has the option to "View" a book, bringing them to the book on Google Books, or "Save" a book, saving it to the Mongo database.
 
-  * Filter the users by at least one property.
+  * Renders all books saved to the Mongo database. User has an option to "View" the book, bringing them to the book on Google Books, or "Delete" a book, removing it from the Mongo database.
 
 ## Dependencies
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with starter code [Create React App](https://github.com/facebook/create-react-app).
 
 Additional dependencies are:
 * [axios](https://www.npmjs.com/package/axios) for making API calls
 * [bootstrap](https://www.npmjs.com/package/bootstrap) for styling elements
 * [react-bootstrap](https://react-bootstrap.github.io/) for styling the drop down. 
-* [fontawesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react) for phone and mail icons.
+* [mongoose](https://www.npmjs.com/package/mongoose) for the database storing the user's favorite books.
 
 There is a `package.json` included, the following commands should be run to install dependencies:
 
@@ -49,20 +46,20 @@ npm i
 ```
 
 ## Usage
-Use the links above to use the application live. If you prefer to run the application from your computer, you can use the following command after installing the dependencies:
+Use the links above to use the application live on Heroku. If you prefer to run the application from your computer, you can use the following command after installing the dependencies:
 
 ```bash
 npm start
 ```
 
-The application displays a one page application listing the 25 random employees and their name, email, phone number and location. The user can search by first name and last name. The user can sort by first name or by last name. The user can contact the employoee by clicking on the phone number to call them or clicking on the email to start an email. 
+The application displays two pages - Search and Saved. The Search page has a search input that calls the Google Books API and returns book information. The user can click a button to get more info about the book or save the books to their favorites. The Saved page shows info on each saved book and allows the user to press a button to get more info or delete the book from their saved books. 
 
 See Screenshots:<br>
-Directory: <br>
-![Directory](./assets/screenshot.JPG)
+Search Page: <br>
+![Search](./assets/search.JPG)
 <br>
-Sort Options: <br>
-![Sort Options](./assets/sort-options.JPG)
+Saved Page: <br>
+![Saved](./assets/saved.JPG)
 
 ## License
 
