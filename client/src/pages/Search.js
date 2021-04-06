@@ -11,7 +11,7 @@ function Search() {
   async function handleFormSubmit(event) {
     event.preventDefault();
     const results = await API.getBooks(search); // or change to .then
-    // console.log(results.data.items);
+    console.log(results.data.items);
     setResults(results.data.items);
   }
 

@@ -7,11 +7,11 @@ function SaveBookButton({book, updateBook}) {
     const [toggle, setToggle] = useState(false);
 
     const bookResult = {
-        imgURL : book.volumeInfo.imageLinks.smallThumbnail,
-        title: book.volumeInfo.title,
-        authors: book.volumeInfo.authors,
-        description: book.volumeInfo.description,
-        link: book.volumeInfo.infoLink
+        imgURL : book.volumeInfo.imageLinks.smallThumbnail || "No image provided.",
+        title: book.volumeInfo.title || "No title provided.",
+        authors: book.volumeInfo.authors || "No authors provided.",
+        description: book.volumeInfo.description || "No description provided.",
+        link: book.volumeInfo.infoLink || "No link provided."
       }
 
     // call api save book, pass it book to save

@@ -5,16 +5,16 @@ function SearchBookCard({ book }) {
 
   const MAX_LENGTH = 400;
   let bookDescription = book.volumeInfo.description;
-  if (bookDescription.length > 400) {
+  if (bookDescription && (bookDescription.length > 400)) {
     bookDescription = `${bookDescription.substring(0, MAX_LENGTH)}...`;
   }
 
   const bookResult = {
-    imgURL : book.volumeInfo.imageLinks.smallThumbnail,
-    title: book.volumeInfo.title,
-    authors: book.volumeInfo.authors,
-    description: bookDescription,
-    link: book.volumeInfo.infoLink
+    imgURL : book.volumeInfo.imageLinks.smallThumbnail || "No image provided.",
+    title: book.volumeInfo.title || "No title provided.",
+    authors: book.volumeInfo.authors || "No authors provided.",
+    description: bookDescription || "No description provided.",
+    link: book.volumeInfo.infoLink || "No link provided."
   }
 
   return (

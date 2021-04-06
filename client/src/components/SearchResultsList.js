@@ -5,6 +5,9 @@ import MoreInfoButton from "./MoreInfoButton";
 import SearchBookCard from "./SearchBookCard";
 
 function SearchResultsList({ results }) {
+  // console.log("Results:")
+  // console.log(results)
+  // console.log(results.length)
   return results.length ? (
     <ListGroup>
       {results.map((book, index) => (

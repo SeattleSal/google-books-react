@@ -14,9 +14,9 @@ function SavedBookCard({ book }) {
         <Card.Text>
           {book.description.length > MAX_LENGTH ?
             (
-              <div>
+              <span>
                 {`${book.description.substring(0, MAX_LENGTH)}...`}
-              </div>
+              </span>
             ) : book.description
           }
           </Card.Text>
